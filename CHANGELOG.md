@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-11-08
+
+### Added
+- **Verified Native Engineering Evidence:** Complete audit report (`docs/GENUINE_NATIVE_EVIDENCE.md`) and sanitized machine-readable ledger (`docs/evidence/genuine-acceptance-evidence.json`) documenting the authorized Asterisk 20 ARI + Gnani Prisma v3.0 REST acceptance run (`native-web-2da1e346-7689-4d2b-925f-96f3dd38566e`).
+- **Independent ARI Telephony Receipts:** 3 verified DTMF events (`5 → 8 → 1`) captured on Asterisk channel `2e3842f4-98db-4d2b-a8b8-b9140501ee0a`.
+- **Judge & Evaluator Walkthrough:** Step-by-step engineering walkthrough in `README.md` and offline validation commands.
+
+### Clarified
+- **Architectural Boundaries:** Strict separation of REAL_API STT, local Asterisk loopback PBX, synthetic IVR prompts, prepared Gnani Timbre web audio, simulated Cloudflare Pages demo, and zero public PSTN calling.
+- **Scope Disclosures:** Explicitly qualified routing accuracy to 3/3 decisions in this single controlled broadband complaint journey; attributed sub-350ms timings to Gnani Prisma STT server processing.
+
 ## [1.0.0] - 2026-11-08
 
 ### Added

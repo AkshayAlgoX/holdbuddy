@@ -15,7 +15,29 @@
 ### 🌐 Live Interactive Demonstration
 👉 **[Launch HoldBuddy on Cloudflare Pages](https://holdbuddy-cloudflare-pages.pages.dev/)** — *Zero-cost, edge-hosted Hindi IVR navigation simulation with real-time SSE telemetry and full mobile responsiveness.*
 
-**Quick Links:** [🚀 Try Live Demo](https://holdbuddy-cloudflare-pages.pages.dev/) • [📐 Architecture & Provenance](docs/INTEGRATION.md) • [🧪 Verification Suite (48 Tests Passed)](docs/VERIFICATION.md) • [💻 Local Quickstart](#9-installation--local-development) • [🔒 Security Model](#12-security--privacy-model)
+**Quick Links:** [🚀 Try Live Demo](https://holdbuddy-cloudflare-pages.pages.dev/) • [🔬 Verified Native Evidence](docs/GENUINE_NATIVE_EVIDENCE.md) • [📐 Architecture & Provenance](docs/INTEGRATION.md) • [🧪 Verification Suite (48 Tests Passed)](docs/VERIFICATION.md) • [💻 Local Quickstart](#9-installation--local-development) • [🔒 Security Model](#12-security--privacy-model)
+
+---
+
+### 🔬 Verified Native Engineering Evidence (Separately Qualified)
+
+Separately from the public zero-cost interactive web simulation, HoldBuddy completed an authorized end-to-end native engineering test driving a real **Asterisk 20 PBX daemon** via ARI and AudioSocket with live **Gnani Prisma v3.0 Speech-to-Text REST requests** (`https://api.vachana.ai/stt/v3`):
+
+- **Judge Walkthrough (Broadband Complaint Journey):**
+  1. **Goal Selection:** User selects `"Complaint Help"` (`मेरे ब्रॉडबैंड बिल की शिकायत`) in the local developer console.
+  2. **IVR Audio Playback:** Asterisk 20 PBX plays telecommunications Hindi IVR audio into the local loopback channel.
+  3. **Gnani Prisma STT:** Prisma processes 3 live Hindi telephonic menus (sub-350ms server latency; Request IDs: `7113b10c-67ac-4e12-8636-4d2d24931413`, `77114a5f-ec02-4d5d-962a-60af1010356c`, `fa8604c5-7367-45a3-9038-ab8891d1b339`).
+  4. **Goal-Constrained Controller:** HoldBuddy's semantic matching engine routes `5 → 8 → 1` (3/3 correct decisions in this controlled journey).
+  5. **Independent Telephony Confirmation:** Asterisk independently records DTMF receipts (`5`, `8`, `1`) on the channel wire.
+  6. **Safe Detach & Cleanup:** 119 ms clean media detach; Asterisk daemon exits cleanly (`code: 0`).
+- **Architectural Truth & Boundaries:**
+  - `REAL_API`: Real HTTPS calls to Gnani Prisma v3.0 REST STT (`hi-IN`).
+  - `REAL_LOCAL_PBX`: Real native Asterisk 20 ARI + AudioSocket on Linux loopback.
+  - `CONTROLLED_SYNTHETIC`: Local Hindi IVR menu audio played from verified benchmark fixtures.
+  - `PREPARED_GNANI_TIMBRE`: Public website streams genuine Gnani Timbre v3.0 Shivani audio assets.
+  - `SIMULATED_CONSUMER_UI`: The public Cloudflare Pages web demo is a client simulation for zero-cost competition accessibility.
+  - `NO_PSTN`: No public PSTN carrier calls or live telecom trunking was used.
+- **Full Evidence Dossier:** See [`docs/GENUINE_NATIVE_EVIDENCE.md`](docs/GENUINE_NATIVE_EVIDENCE.md) and machine-readable [`docs/evidence/genuine-acceptance-evidence.json`](docs/evidence/genuine-acceptance-evidence.json).
 
 ---
 
@@ -161,6 +183,8 @@ For native telephony verification, HoldBuddy integrates with **Asterisk 20** usi
    ```
 4. **Independent Audit Ledger:** DTMF acknowledgement events, audio detaches, and hangup signals are recorded in an immutable local transaction ledger.
 
+> 📖 **Full Engineering Report & Artifacts:** See [`docs/GENUINE_NATIVE_EVIDENCE.md`](docs/GENUINE_NATIVE_EVIDENCE.md) for complete request IDs, sample-accurate audio verification, and reproducible offline validation scripts. Full machine-readable evidence: [`docs/evidence/genuine-acceptance-evidence.json`](docs/evidence/genuine-acceptance-evidence.json).
+
 ---
 
 ## 8. Public Demonstration vs. Native Telephony Boundary
@@ -260,6 +284,9 @@ npm test
 - **Simulated Carrier Line:** The public web demonstration is an interactive simulation using genuine Gnani Timbre audio and verified transcripts. It does not initiate actual PSTN carrier phone calls.
 - **Single Active Session per IP (Simulator):** To prevent edge abuse, visitor sessions are rate-limited and bound to single concurrent call threads.
 - **Pre-defined Scenario Breadth:** Current IVR decision trees focus on common telecommunications broadband workflows (complaint, billing, payment, and refund refusal). Expanding to banking and aviation requires additional scenario definitions.
+- **Controlled Qualification Scope:** The native Asterisk engineering verification confirmed 3 out of 3 correct routing decisions in one specific controlled broadband complaint journey; it does not claim universal 100% routing accuracy across untested phone menus.
+- **Constrained Decision Engine:** HoldBuddy utilizes a deterministic, goal-constrained semantic policy matcher against discrete IVR menu choices; it is not an unconstrained generative LLM.
+- **Internal Verification Attestation:** Auditing and test qualification were conducted internally by the project engineering team using automated reproducible test scripts; no external third-party auditing agency is claimed.
 
 ---
 
