@@ -12,6 +12,13 @@
 
 ---
 
+### 🌐 Live Interactive Demonstration
+👉 **[Launch HoldBuddy on Cloudflare Pages](https://holdbuddy-cloudflare-pages.pages.dev/)** — *Zero-cost, edge-hosted Hindi IVR navigation simulation with real-time SSE telemetry and full mobile responsiveness.*
+
+**Quick Links:** [🚀 Try Live Demo](https://holdbuddy-cloudflare-pages.pages.dev/) • [📐 Architecture & Provenance](docs/INTEGRATION.md) • [🧪 Verification Suite (48 Tests Passed)](docs/VERIFICATION.md) • [💻 Local Quickstart](#9-installation--local-development) • [🔒 Security Model](#12-security--privacy-model)
+
+---
+
 ## 1. The Customer-Care Problem in India
 
 Every day, millions of Indian consumers call telecom, banking, and utility customer helplines. The experience is notoriously frustrating:
@@ -26,34 +33,36 @@ Every day, millions of Indian consumers call telecom, banking, and utility custo
 
 ## 2. Product Experience & Interface
 
-HoldBuddy features a clean, responsive client interface designed for both mobile handsets and desktop workstations.
+HoldBuddy features an editorial, high-clarity client interface designed for both mobile handsets and desktop workstations.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│  HoldBuddy — Studio                                    [ 00:48 / Live ]│
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│   Goal: "मेरे ब्रॉडबैंड बिल की शिकायत" (Broadband Bill Complaint)      │
-│                                                                        │
-│   Phase Track:                                                         │
-│   [● Menu 1: '5'] ───> [● Menu 2: '8'] ───> [● Menu 3: '1'] ───> [Hold]│
-│                                                                        │
-│   Live Transcript & Audio:                                             │
-│   "कृपया लाइन पर बने रहें। हमारे सभी प्रतिनिधि व्यस्त हैं..."          │
-│    ▂▃▅▇█▇▅▃▂  [Playing: Gnani Timbre v3.0 Shivani]                     │
-│                                                                        │
-│  ┌──────────────────────────────────────────────────────────────────┐  │
-│  │ 🔔 POSSIBLE HUMAN AGENT DETECTED: "नमस्ते, मेरा नाम आशा है..."   │  │
-│  │ [ Take Over Call ]                      [ Dismiss / Keep Waiting ]│  │
-│  └──────────────────────────────────────────────────────────────────┘  │
-│                                                                        │
-└────────────────────────────────────────────────────────────────────────┘
-```
+### Live Production Walkthrough
 
-- **Live Navigation Phase Rails:** Visual indicators tracking current menu depth and dispatched DTMF digits (`5 → 8 → 1`).
-- **Real-Time Speech Waveforms:** Synchronized audio visualization with millisecond-accurate transcript glosses.
-- **Human Arrival Alert:** Prominent audio and visual alert triggering immediately upon agent voice classification.
-- **Developer Laboratory:** An inspection suite for reviewing state transitions, decision ledgers, and telemetry.
+#### 1. Objective Selection & Phone Tree Configuration
+Users select their intended goal in natural Hindi (`मेरे ब्रॉडबैंड बिल की शिकायत`, `मेरे ब्रॉडबैंड बिल का भुगतान`, or `मेरे ब्रॉडबैंड बिल का रिफंड`). HoldBuddy maps the natural-language intent to the IVR topology without requiring the user to know dialpad shortcuts beforehand:
+
+![HoldBuddy Desktop Homepage — Objective selection cards for broadband complaint, payment help, and refund requests](docs/screenshots/desktop-homepage-objectives.png)
+
+#### 2. Live IVR Navigation, Hold Queue & Human Agent Handoff
+As the call progresses, HoldBuddy dynamically renders the real-time call trajectory across multi-level IVR menus (`5 → 8 → 1`), absorbs the hold queue, and fires an instant visual and acoustic notification the second an executive answers:
+
+![HoldBuddy Call Journey & Human Handoff — Phase rail showing 5 -> 8 -> 1 navigation, hold absorption, and human agent takeover prompt](docs/screenshots/desktop-complaint-handoff.png)
+
+#### 3. Mobile Responsiveness & Safe Refusal Policy
+
+| Mobile Experience (390×844 Viewport) | Safe Refusal Policy (5 → 8 → Abstain) |
+|:---:|:---:|
+| [![HoldBuddy Mobile Responsive Interface at 390x844 viewport](docs/screenshots/mobile-layout-390.png)](docs/screenshots/mobile-layout-390.png) | [![HoldBuddy Safe Refusal Journey - Decision engine abstains at level 3 when refund is unoffered](docs/screenshots/desktop-refund-safe-refusal.png)](docs/screenshots/desktop-refund-safe-refusal.png) |
+| *Adaptive single-column layout optimized for mobile touchscreens* | *Deterministic refusal (`action_mismatch`): never guesses or misdials* |
+
+---
+
+### Key Interface Capabilities
+
+- **Live Navigation Phase Rails:** Visual trajectory tracking current menu depth, duration, and dispatched DTMF digits (`5 → 8 → 1`).
+- **Synchronized Audio & Glosses:** Real-time audio streaming paired with millisecond-accurate Hindi transcript phrases and timing metadata.
+- **Human Arrival Detection & Handoff:** High-priority human agent detection prompt (`"नमस्ते, मेरा नाम आशा है..."`) allowing the user to take over the live line with one tap.
+- **Safe Refusal & Transparency:** Transparently discloses when a requested option (e.g., refund) is unoffered by the telecom provider and halts execution rather than misrouting.
+- **Audio Provenance & Disclosure Transparency:** The live public demonstration streams verified Gnani Timbre v3.0 Shivani neural voice audio (`prompt-02.wav` through `prompt-07.wav`, verified via `x-holdbuddy-audio-origin: public_synthetic` HTTP headers). The client interface preserves a conservative synthetic fallback disclosure caption in adherence with competition transparency guidelines.
 
 ---
 
@@ -63,6 +72,8 @@ HoldBuddy features a clean, responsive client interface designed for both mobile
   *(Durable zero-cost Cloudflare edge deployment with full mobile support).*
 - **Secondary Web Demo:** [https://holdbuddy-demo-deploy.onrender.com/](https://holdbuddy-demo-deploy.onrender.com/)
 - **60-Second Competition Video:** High-definition video walkthrough showcasing the complete Hindi customer journey from IVR dialing to human executive handoff.
+- **Technical Architecture Documentation:** See [`docs/INTEGRATION.md`](docs/INTEGRATION.md) for three-goal integration provenance and component boundaries.
+- **Verification & Acceptance Ledger:** See [`docs/VERIFICATION.md`](docs/VERIFICATION.md) for 48 automated test results and production gateway qualification.
 
 ---
 
