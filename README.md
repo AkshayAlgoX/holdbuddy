@@ -2,7 +2,7 @@
 
 # HoldBuddy — Hold, handled.
 
-**An intelligent voice AI agent that navigates complex Indian customer-care IVRs, waits on hold, and hands control back to you when a human agent answers.**
+**A goal-driven voice AI prototype that explores navigating complex Indian customer-care IVRs, waiting on hold, and notifying you when a human agent answers.**
 
 *Built for the **Gnani AI Great Indian AI Internship Challenge 2026**.*
 
@@ -33,18 +33,18 @@
 
 ### The Problem in India
 Every day, millions of Indian consumers call telecom, banking, and utility customer helplines. The experience is notoriously frustrating:
-- **Labyrinthine IVR Menus:** Deeply nested dialpad trees across Hindi, English, and regional languages that force callers to listen to repetitive, irrelevant options.
-- **Cognitive Load & Ambiguity:** Dialpad options move or use unfamiliar phrasing, leading to misrouting or accidental disconnection.
-- **Excruciating Hold Queues:** 15–45 minutes trapped listening to repetitive hold music, preventing users from working or stepping away.
-- **Abrupt Disconnections:** If a human executive finally answers while the caller steps away for just 10 seconds, the executive disconnects due to silence.
+- **Labyrinthine IVR Menus:** Deeply nested dialpad trees across Hindi, English, and regional languages that require callers to listen to repetitive, irrelevant options.
+- **Cognitive Load & Ambiguity:** Dialpad options change or use unfamiliar phrasing, often leading to misrouting or accidental disconnection.
+- **Prolonged Hold Queues:** Callers are stuck waiting through extended hold music, unable to step away or focus on other tasks.
+- **Missed Representative Pickups:** If a customer representative finally answers while the caller is momentarily distracted, the call is easily dropped due to brief silence.
 
-### The HoldBuddy Solution
-HoldBuddy acts as an intelligent, sovereign proxy for your telephone line:
-1. **Goal-First Intent:** You state your goal in plain Hindi or Hinglish (`"मेरे ब्रॉडबैंड बिल की शिकायत"`).
-2. **Autonomous Telephony Navigation:** HoldBuddy listens to the live prompts, identifies the correct options using constrained semantic matching, and presses the necessary DTMF tones (`5 → 8 → 1`).
-3. **Hold Queue Absorption:** HoldBuddy stays on the line through the hold music while you carry on with your life.
-4. **Instant Human Hand-off:** The acoustic classifier detects live human speech greetings (`"नमस्ते, मेरा नाम आशा है..."`) and immediately fires high-priority visual and audio alerts to transfer the call to you.
-5. **Deterministic Safe Abstention:** HoldBuddy **never guesses**. If a requested option (e.g., refund) is unoffered by the telecom provider, it halts and refuses safely (`action_mismatch`) instead of misdialing.
+### The HoldBuddy Approach
+HoldBuddy is designed as a focused Voice AI prototype for telephonic navigation:
+1. **Goal-First Intent:** You specify your objective in Hindi or Hinglish (e.g., `"मेरे ब्रॉडबैंड बिल की शिकायत"`).
+2. **Constrained DTMF Routing:** HoldBuddy listens to incoming telephonic prompts, performs goal-constrained semantic matching against transcribed menu options, and dispatches the corresponding DTMF tones (`5 → 8 → 1`).
+3. **Hold-State Monitoring:** HoldBuddy monitors the call through the hold phase so the user does not have to remain glued to the handset.
+4. **Human Arrival Notification:** Speech energy detection during the hold phase flags candidate representative greetings (`"नमस्ते, मेरा नाम आशा है..."`) and immediately prompts the caller to take over the call.
+5. **Deterministic Safe Abstention:** If a requested intent (such as a refund) is absent from the menu options, HoldBuddy halts predictably (`action_mismatch`) rather than guessing an arbitrary keypress.
 
 ---
 
@@ -53,7 +53,7 @@ HoldBuddy acts as an intelligent, sovereign proxy for your telephone line:
 HoldBuddy features an editorial, high-clarity client interface designed for mobile touchscreens and desktop workstations.
 
 ### Live Call Progression & Human Executive Handoff
-As the call advances through the Hindi IVR phone tree, HoldBuddy dynamically renders the live trajectory, absorbs the hold queue, and fires an instant takeover alert when an executive speaks:
+As the call advances through the Hindi IVR phone tree, HoldBuddy dynamically renders the live trajectory, monitors the hold queue, and prompts the user to take over the call when an executive greeting is detected:
 
 <p align="center">
   <img src="docs/screenshots/desktop-complaint-handoff.png" alt="HoldBuddy Live Call Navigation — Phase rail showing 5 -> 8 -> 1 navigation, hold queue absorption, and human agent takeover prompt" width="100%">
@@ -72,7 +72,7 @@ As the call advances through the Hindi IVR phone tree, HoldBuddy dynamically ren
 |---|---|:---:|---|
 | **Broadband Bill Complaint** | `"मेरे ब्रॉडबैंड बिल की शिकायत"` | `5 → 8 → 1` | Navigates 3 menu levels, enters hold queue, detects executive greeting (`"नमस्ते, मेरा नाम आशा है"`), alerts user. |
 | **Broadband Bill Payment** | `"मेरे ब्रॉडबैंड बिल का भुगतान"` | `5 → 8 → 2` | Navigates broadband (`5`), billing (`8`), payment help (`2`), enters hold, completes handoff. |
-| **Unsupported Refund Request** | `"मेरे ब्रॉडबैंड बिल का रिफंड"` | `5 → 8` | Safely abstains (`decision.abstained: action_mismatch`) at menu level 3 when refund is unoffered. **Never guesses.** |
+| **Unsupported Refund Request** | `"मेरे ब्रॉडबैंड बिल का रिफंड"` | `5 → 8` | Safely abstains (`decision.abstained: action_mismatch`) at menu level 3 when refund is unoffered. Deterministic safe refusal. |
 
 ---
 
@@ -88,15 +88,30 @@ Separately from the public zero-cost interactive web simulation, HoldBuddy compl
 5. **Independent Telephony Receipts:** Asterisk independently confirms DTMF keypresses (`5`, `8`, `1`) on the channel wire.
 6. **Safe Detach & Teardown:** 119 ms clean media detach; Asterisk daemon exits cleanly with **code 0**.
 
-### Verified Turn Evidence Ledger
+### Verified 3-Turn Navigation Summary
 
-| Turn | Audio Bytes | Gnani Prisma Request ID | Server Processing | Recognized Hindi Transcript | Dispatched Digit | Asterisk ARI Receipt |
-|:---:|:---:|:---:|:---:|---|:---:|:---:|
-| **1** | 183,680 B | `7113b10c-67ac-4e12-8636-4d2d24931413` | 204.9 ms | `"mobile के लिए कृपया 3 दबाएं। landline के लिए 6 दबाएं। रोमिंग के लिए कृपया एक दबाएं। ब्रॉडबैंड के लिए पाँच दबाएं।"` | **`5`** | `ChannelDtmfReceived: 5` (100ms) |
-| **2** | 368,640 B | `77114a5f-ec02-4d5d-962a-60af1010356c` | 295.8 ms | `"दोबारा सुनने के लिए 3 दबाएं। बिल के लिए कृपया 8 दबाएं। प्लान के लिए 2 दबाएं। नया connection के लिए कृपया 6 दबाएं... बिल के लिए कृपया 8 दबाएं।"` | **`8`** | `ChannelDtmfReceived: 8` (100ms) |
-| **3** | 282,560 B | `fa8604c5-7367-45a3-9038-ab8891d1b339` | 266.6 ms | `"बिल की शिकायत के लिए कृपया 1 दबाएँ। roaming के लिए 7 दबाएँ। दोबारा सुनने के लिए कृपया 4 दबाएं। बिल के भुगतान के लिए 2 दबाएं..."` | **`1`** | `ChannelDtmfReceived: 1` (100ms) |
+In our controlled qualification run (`native-web-2da1e346-7689-4d2b-925f-96f3dd38566e`), HoldBuddy completed **3 out of 3 correct routing decisions** in this broadband complaint journey:
 
-> 📖 **Full Engineering Report & Artifacts:** See [`docs/GENUINE_NATIVE_EVIDENCE.md`](docs/GENUINE_NATIVE_EVIDENCE.md) for full turn breakdowns, sample-accurate audio verification, and reproducible offline validation commands. Complete machine-readable evidence: [`docs/evidence/genuine-acceptance-evidence.json`](docs/evidence/genuine-acceptance-evidence.json).
+- **Turn 1 — Broadband Selection:**
+  - **Prisma STT Request:** `7113b10c-67ac-4e12-8636-4d2d24931413` (204.9 ms server processing)
+  - **Decision:** Pressed digit **`5`** (`broadband`)
+  - **Asterisk Wire Receipt:** `ChannelDtmfReceived: 5` on channel `2e3842f4-98db-4d2b-a8b8-b9140501ee0a`
+- **Turn 2 — Billing Category Selection:**
+  - **Prisma STT Request:** `77114a5f-ec02-4d5d-962a-60af1010356c` (295.8 ms server processing)
+  - **Decision:** Pressed digit **`8`** (`billing`)
+  - **Asterisk Wire Receipt:** `ChannelDtmfReceived: 8` on channel `2e3842f4-98db-4d2b-a8b8-b9140501ee0a`
+- **Turn 3 — Complaint Escalation:**
+  - **Prisma STT Request:** `fa8604c5-7367-45a3-9038-ab8891d1b339` (266.6 ms server processing)
+  - **Decision:** Pressed digit **`1`** (`complaint_help`)
+  - **Asterisk Wire Receipt:** `ChannelDtmfReceived: 1` on channel `2e3842f4-98db-4d2b-a8b8-b9140501ee0a`
+
+| Turn | Target Intent | Dispatched Digit | Prisma Request ID | Server Latency | Asterisk ARI Wire Confirmation |
+|:---:|---|:---:|:---:|:---:|:---:|
+| **1** | Broadband (`5`) | **`5`** | `7113b10c...1413` | 204.9 ms | `ChannelDtmfReceived: 5` (100ms) |
+| **2** | Billing (`8`) | **`8`** | `77114a5f...356c` | 295.8 ms | `ChannelDtmfReceived: 8` (100ms) |
+| **3** | Complaint (`1`) | **`1`** | `fa8604c5...b339` | 266.6 ms | `ChannelDtmfReceived: 1` (100ms) |
+
+> 📖 **Full Engineering Report & Audio Artifacts:** Complete byte counts, full Hindi transcripts, PCM sample integrity verification, and Asterisk lifecycle logs are documented in [`docs/GENUINE_NATIVE_EVIDENCE.md`](docs/GENUINE_NATIVE_EVIDENCE.md). Machine-readable evidence: [`docs/evidence/genuine-acceptance-evidence.json`](docs/evidence/genuine-acceptance-evidence.json).
 
 ---
 
@@ -206,20 +221,20 @@ npm test
 ```
 
 ### Reproducing the Offline Evidence Verification
-Any evaluator can verify the cryptographic and structural integrity of the published evidence ledger in under 1 second:
+Evaluators can verify the structural, sequence, and cryptographic invariants of the published evidence ledger in under 1 second using the included offline verifier:
 
 ```bash
-node -e "
-import { readFileSync } from 'node:fs';
-const data = JSON.parse(readFileSync('docs/evidence/genuine-acceptance-evidence.json', 'utf8'));
-console.log('Verdict:', data.acceptanceVerdict);
-console.log('Classification:', data.classification);
-console.log('Turns Verified:', data.turns.length);
-data.turns.forEach(t => {
-  console.log(\` Turn \${t.generation}: Prisma ID=\${t.requestId} -> Pressed \${t.decision.digit} -> ARI Confirmed \${t.independentDtmfReceipt.digit}\`);
-});
-"
+# Run the structural, sequence, and cryptographic invariant verifier
+npm run verify:evidence
 ```
+
+Alternatively, run the script directly:
+```bash
+node scripts/verify-evidence.mjs
+```
+
+> [!NOTE]
+> **Scope of Offline Verification:** This offline script validates internal schema invariants, sequential turn ordering (`1 → 2 → 3`), expected DTMF digits (`5 → 8 → 1`), valid 64-character SHA-256 prompt hex digests, and independent Asterisk ARI wire receipts. However, a self-contained JSON file cannot independently prove to a third party that Gnani's external servers emitted those responses without access to Gnani's server-side request audit logs. No external third-party certification is claimed.
 
 ---
 
@@ -241,7 +256,7 @@ To maintain scientific integrity and prevent exaggerated claims, the project sco
 HoldBuddy was conceptualized, built, and qualified by:
 
 - **Akshaya R ([@AkshayAlgoX](https://github.com/AkshayAlgoX))** — Core System Architecture, IVR Decision Policy, Asterisk AudioSocket Pipelines, Cloudflare Edge Deployment, and Test Automation.
-- **Nikhil** — Product Strategy, Telephony Scenario Research, UI/UX Design Direction, and Competition Video Storyboarding.
+- **Nikhil VS ([@Nikhil-VS1811](https://github.com/Nikhil-VS1811))** — Product Strategy, Telephony Scenario Research, UI/UX Design Direction, and Competition Video Storyboarding.
 
 ### Gnani AI Acknowledgment
 We gratefully acknowledge **Gnani Innovations Private Limited** for organizing the **Great Indian AI Internship Challenge 2026** and providing access to their sovereign Indic speech models:

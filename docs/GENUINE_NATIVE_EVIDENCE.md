@@ -115,23 +115,19 @@ To prevent misleading interpretations, the engineering scope is explicitly quali
 
 ---
 
-### Step-by-Step Offline Verification
+### Step-by-Step Offline Invariant Verification
 
-Any evaluator or developer with Node.js 22 can independently verify this evidence package using only the published repository files:
+Evaluators can run the offline integrity verifier using only published repository files:
 
 ```bash
-# 1. Inspect the sanitized machine-readable evidence
-cat docs/evidence/genuine-acceptance-evidence.json | jq .turns
-
-# 2. Verify turn request IDs and ARI receipts
-node -e "
-import { readFileSync } from 'node:fs';
-const data = JSON.parse(readFileSync('docs/evidence/genuine-acceptance-evidence.json', 'utf8'));
-console.log('Acceptance Verdict:', data.acceptanceVerdict);
-console.log('Classification:', data.classification);
-console.log('Turns Verified:', data.turns.length);
-data.turns.forEach(t => {
-  console.log(\` Turn \${t.generation}: Prisma ID=\${t.requestId} -> Pressed \${t.decision.digit} -> ARI Confirmed \${t.independentDtmfReceipt.digit}\`);
-});
-"
+# Run the structural, sequence, and cryptographic invariant verifier
+npm run verify:evidence
 ```
+
+Alternatively, run the script directly:
+```bash
+node scripts/verify-evidence.mjs
+```
+
+> [!NOTE]
+> **Scope of Offline Verification:** This offline script programmatically validates that the recorded evidence ledger maintains internal schema invariants, sequential turn ordering (`1 → 2 → 3`), expected DTMF digits (`5 → 8 → 1`), valid 64-character SHA-256 prompt hex digests, and independent Asterisk ARI wire receipts. However, a self-contained JSON file cannot independently prove to a third party that Gnani's external servers emitted those responses without access to Gnani's server-side request audit logs. No external third-party certification is claimed.

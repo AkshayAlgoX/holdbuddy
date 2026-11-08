@@ -19,8 +19,8 @@ All contributors and participants are expected to adhere to our [Code of Conduct
 
 2. **Fork and Clone:**
    ```bash
-   git clone https://github.com/AkshayAlgoX/HoldBuddy.git
-   cd HoldBuddy
+   git clone https://github.com/AkshayAlgoX/holdbuddy.git
+   cd holdbuddy
    npm install
    ```
 
