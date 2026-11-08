@@ -1,0 +1,195 @@
+{
+  "localVerdict": "GO_FOR_OWNER_REVIEW",
+  "publicLaunchVerdict": "BLOCKED_PENDING_APPROVAL_AND_ACTUAL_ADDRESS_ACCEPTANCE",
+  "sourceInputs": [
+    "91e2e4556faf8a105ea4ad8ae24999d545d0665e",
+    "5c243fb20e79f3bd208ec951b0297671b172bd08"
+  ],
+  "noRemotePublicationPerformed": true,
+  "deployedAddressVerified": false,
+  "cleanContainer": {
+    "testsPassed": 12,
+    "testsFailed": 0,
+    "network": "none",
+    "hostMounts": 0,
+    "memoryMiB": 512,
+    "cpuLimit": 0.5,
+    "readOnly": true,
+    "nodeChildProcessesAllowed": false
+  },
+  "pacedLoad": {
+    "concurrentCalls": 8,
+    "complaint": 4,
+    "paymentHelp": 4,
+    "confirmedClosures": 8,
+    "seconds": 72.716,
+    "ninthRejected": true
+  },
+  "coreRegressionSelection": {
+    "passed": 774,
+    "failed": 0,
+    "providerTestsOmitted": 11,
+    "providerStaticTestFiltered": 1
+  },
+  "auditRegressions": {
+    "passed": 25,
+    "failed": 0
+  },
+  "permutedMenuAndTopologyTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "frontendSelection": {
+    "files": 11,
+    "passed": 59,
+    "failed": 0,
+    "originalFullSuiteRerun": false
+  },
+  "chromium": {
+    "version": "145.0.7632.6",
+    "addressClass": "local HTTPS sanitized runtime artifact",
+    "objectives": [
+      {
+        "key": "complaint",
+        "requested": [
+          "5",
+          "8",
+          "1"
+        ],
+        "delivered": [
+          "5",
+          "8",
+          "1"
+        ],
+        "completeWavs": 6,
+        "confirmedClosure": true,
+        "outcome": "handoff"
+      },
+      {
+        "key": "payment-help",
+        "requested": [
+          "5",
+          "8",
+          "2"
+        ],
+        "delivered": [
+          "5",
+          "8",
+          "2"
+        ],
+        "completeWavs": 6,
+        "confirmedClosure": true,
+        "outcome": "handoff"
+      },
+      {
+        "key": "refund",
+        "requested": [
+          "5",
+          "8"
+        ],
+        "delivered": [
+          "5",
+          "8"
+        ],
+        "completeWavs": 4,
+        "confirmedClosure": true,
+        "outcome": "manual_takeover"
+      }
+    ],
+    "checks": {
+      "unmutedBrowser": true,
+      "keyboard": true,
+      "creationLock": true,
+      "freshCallAfterReset": true,
+      "closedTraceIdentity": true,
+      "navigationDuringAudio": {
+        "paused": true,
+        "blobRevoked": true,
+        "callContinued": true,
+        "restoredGoal": "\u092e\u0947\u0930\u0947 \u092c\u094d\u0930\u0949\u0921\u092c\u0948\u0902\u0921 \u092c\u093f\u0932 \u0915\u093e \u092d\u0941\u0917\u0924\u093e\u0928",
+        "newCallsCreatedOnReturn": 0
+      },
+      "independentVisitors": true,
+      "outageReconnect": {
+        "failedStopHonest": true,
+        "sameSession": true,
+        "noDuplicateStart": true
+      },
+      "explicitReplayAfterAutoplayDenial": true,
+      "originalFallback": true,
+      "serviceRestart": {
+        "staleCapabilityReplaced": true,
+        "explicitFreshStart": true,
+        "confirmedStop": true
+      },
+      "overlayStableViewport": {
+        "x": 16,
+        "width": 288,
+        "right": 304
+      },
+      "safeArea34": {
+        "safeAreaPadding": "34px",
+        "navTop": 473,
+        "lastLinkBottom": 471.859375
+      }
+    },
+    "externalRequests": 0,
+    "pageErrors": 0,
+    "physicalDevicesTested": false
+  },
+  "webkit": {
+    "currentRun": "PASS_WITH_ISOLATED_LIBRARIES",
+    "objectivesPassed": 3,
+    "completeSpeechWavs": 16,
+    "physicalDeviceTested": false
+  },
+  "audio": {
+    "kokoroClips": 14,
+    "allBytesUnchanged": true,
+    "primaryClipsMatchingPriorListeningApproval": 6,
+    "newHumanListeningPerformed": false,
+    "newCandidateApproved": false,
+    "mockRecognitionOnly": true
+  },
+  "websiteFixes": {
+    "audioCleanup": "ACCEPTED",
+    "overlayPlacement": "ACCEPTED",
+    "logoHitArea": "ACCEPTED"
+  },
+  "olderUxAudit": {
+    "safeArea": "NOT_REPRODUCED",
+    "indicGlyphClipping": "NOT_REPRODUCED",
+    "studioLanguageInference": "DEFERRED",
+    "smallButtons": "NOT_REPRODUCED_IN_CURRENT_PUBLIC_ROUTES",
+    "heroWrapping320": "NOT_REPRODUCED"
+  },
+  "incomplete": [
+    "Full development web/simulator suites",
+    "Firefox",
+    "Physical devices/assistive technology",
+    "Actual public HTTPS address acceptance"
+  ],
+  "publicationDeploymentAuthorized": false,
+  "archiveRuntimeRequalification": {
+    "objectivesPassed": 3,
+    "productionTiming": true,
+    "identicalRuntimeFiles": 67,
+    "scope": "Exact archive payload compared with independently tested corrected runtime and reproducible source build"
+  },
+  "authoredAuditTestsIncludedInSource": true,
+  "authoredAuditCommand": "node --max-old-space-size=256 scripts/check-audits.mjs",
+  "independentCorrection": {
+    "applicationFile": "apps/web/src/judge/audio.ts",
+    "reason": "Prevent automatic replacement of unfinished recorded menus",
+    "testOnlyCorrection": "Check initialStepId in topology regression",
+    "gatewayTests": 12,
+    "coreTests": 774,
+    "criticalRuntimeTests": 76,
+    "frontendTests": 59,
+    "authoredTests": 27,
+    "additionalProductionProbes": 7,
+    "newAudio": false,
+    "newCandidateApprovedByOwner": false,
+    "details": "INDEPENDENT_ACCEPTANCE.md"
+  }
+}

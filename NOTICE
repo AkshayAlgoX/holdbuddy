@@ -1,0 +1,17 @@
+HoldBuddy
+Copyright 2026 Akshaya R and HoldBuddy Contributors
+
+This product includes software developed as part of the HoldBuddy project
+for the Gnani AI Great Indian AI Internship Challenge 2026.
+
+Project Authors & Contributors:
+- Akshaya R (@AkshayAlgoX) — System Architecture, IVR Core, Speech Pipelines, Edge Infrastructure
+- Nikhil — Product Strategy, Telephony Integration, User Research, Creative Direction
+
+Third-Party Attributions:
+- Built with and inspired by Gnani AI Speech Technology (Prisma v3.0, Timbre v3.0, Evon v3.3).
+  Gnani, Prisma, and Timbre are trademarks or registered trademarks of Gnani Innovations Private Limited.
+- Asterisk PBX is a registered trademark of Sangoma Technologies.
+- Kokoro-82M speech model by hexgrad (Apache 2.0).
+- Kokoro ONNX runtime by the kokoro-onnx contributors (MIT).
+- Indic and Monospace Webfonts by Google Fonts / Fontsource contributors (SIL Open Font License 1.1).

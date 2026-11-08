@@ -1,0 +1,21 @@
+# Audio substitutions and independent validation
+
+All 28 original simulator WAV files are excluded. There was no verified redistribution permission in the inputs used for this preparation, so no original Gnani Timbre recording, consented-person recording or older synthesis file was copied. Their original manifest, receipt files, source identifiers and hashes are also excluded.
+
+The deployment candidate contains fourteen newly generated 16 kHz, 16-bit, mono PCM WAVs. `assets/scripts.json` lists each new file, its public authored script, language, local generator and voice. These are newly rendered substitutes, not Gnani recordings. Their input texts are the already-public fictional scenarios. No genuine recognition transcript or protected recording was supplied to a model.
+
+The substitutes were generated locally using Kokoro-82M v1.0, with Hindi `hf_alpha` and English `af_sarah`. The publisher provides an Apache-2.0 model license and describes the training audio as permissive/non-copyrighted. Its voice list explicitly includes Hindi. The ONNX runner is MIT licensed. Model weights, voice embeddings, synthesis libraries and recognition models are not deployment dependencies and are excluded from both release archives. See `licenses/`, `THIRD_PARTY_NOTICES.md`, the [model publisher](https://huggingface.co/hexgrad/Kokoro-82M), the [voice list](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md), and the [local runner](https://github.com/thewh1teagle/kokoro-onnx).
+
+The approved frontend explicitly calls these files “Synthetic demo speech · Kokoro” and calls the current recognition input a “Demo transcript.” The server uses an offline hash-to-prepared-transcript map. It does not recognize speech. Historical genuine Gnani results are labeled as past experiments and are neither reused as the new recognition output nor treated as evidence for the substitute clips.
+
+Independent checks performed on the new files:
+
+- Audio-container checks: all fourteen decode as PCM; nonzero speech energy, bounded duration and at least 400 ms trailing silence are tested separately from the mock recognizer.
+- A free local faster-whisper `small` multilingual model, CPU/int8, transcribed the files with no scripted text hints and no access to the demo transcript map. It made no paid request. It recovered the English menus well and the short Hindi hold/greeting approximately, but made substantial errors on several Hindi menus, including important number wording. These errors are not hidden by the mock's exact prepared transcripts.
+- Browser checks measure real media playback and time advancement from the same served WAV bytes. These establish decoding/playback behavior; they do not establish that a Hindi speaker can clearly hear every option.
+
+Current acceptance scope: the six exact primary-route files (`prompt-04`, `05`, `06`, `07`, `02`, `03`) match the accepted artifact's owner-approved listening decisions, including every recorded number/meaning/completeness check. Their bytes have not changed. The private listening record, reviewer information and receipts are not included here. The other eight existing Kokoro fixtures remain rights-cleared fallback/safety material; this does not assert that they received the same listening approval.
+
+The earlier independent recognizer's Hindi errors remain a disclosed limitation. Human approval of these six bytes does not turn the prepared-transcript recognizer into genuine recognition and does not approve the new three-goal artifact for publication. Any replacement audio requires new rights review, listening acceptance, verification and an artifact rebuild. No new audio was generated for this integration.
+
+To repeat the independent check, install faster-whisper and NumPy in a separate local Python environment, download the free `Systran/faster-whisper-small` model separately, and run `scripts/validate-audio.py --model /local/model-directory --report new-audio-check.json`. The script refuses a missing model directory and uses local files only. It does not import runtime fixtures or prepared-recognition mappings. Regeneration uses `scripts/generate-neural-audio.py --models /local/kokoro-model-directory`; subsequent audio changes require fresh validation and a rebuilt artifact.

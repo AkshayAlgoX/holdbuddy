@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "paths": {
+      "@holdbuddy/ivr-core": [
+        "./packages/ivr-core/src/index.ts"
+      ],
+      "@holdbuddy/call-runtime": [
+        "./packages/call-runtime/src/index.ts"
+      ],
+      "@holdbuddy/call-runtime/protocol": [
+        "./packages/call-runtime/src/protocol.ts"
+      ]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "apps/web/src",
+    "packages",
+    "server"
+  ]
+}

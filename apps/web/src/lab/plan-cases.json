@@ -1,0 +1,417 @@
+{
+  "note": "Public authored demonstration examples; no recognized transcripts or sealed evaluation data.",
+  "cases": [
+    {
+      "id": "en-paraphrase",
+      "language": "en",
+      "languages": [
+        "en"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "en",
+      "sttLanguage": "en",
+      "text": "If the figure on your last statement looks wrong, press three. To restore a dropped connection, press seven.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "3"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "en-withdrawn",
+      "language": "en",
+      "languages": [
+        "en"
+      ],
+      "category": "withdrawn",
+      "ttsLanguage": "en",
+      "sttLanguage": "en",
+      "text": "For billing complaints press four. That instruction is withdrawn. Do not press four. Please wait for the revised menu.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "hi-paraphrase",
+      "language": "hi",
+      "languages": [
+        "hi"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "hi",
+      "sttLanguage": "hi",
+      "text": "अगर खाते से रकम दो बार कटी है तो चार दबाइए। नया कनेक्शन लेने के लिए सात दबाइए।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "4"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "hi-negated",
+      "language": "hi",
+      "languages": [
+        "hi"
+      ],
+      "category": "negated",
+      "ttsLanguage": "hi",
+      "sttLanguage": "hi",
+      "text": "बिल की शिकायत के लिए तीन मत दबाइए। यह सुविधा अभी बंद है। कृपया प्रतीक्षा करें।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "bn-paraphrase",
+      "language": "bn",
+      "languages": [
+        "bn"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "bn",
+      "sttLanguage": "bn",
+      "text": "একই টাকা দুবার কাটা নিয়ে আপত্তি জানাতে পাঁচ চাপুন। নতুন সংযোগের জন্য আট চাপুন।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "5"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "bn-ambiguous",
+      "language": "bn",
+      "languages": [
+        "bn"
+      ],
+      "category": "ambiguous",
+      "ttsLanguage": "bn",
+      "sttLanguage": "bn",
+      "text": "বিলের সাহায্যের জন্য দুই অথবা সাত চাপুন। কোনটি বেছে নিতে হবে পরে বলা হবে।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "gu-paraphrase",
+      "language": "gu",
+      "languages": [
+        "gu"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "gu",
+      "sttLanguage": "gu",
+      "text": "બિલમાં વધારાની રકમ સામે વાંધો નોંધાવવા છ દબાવો. નવી સેવા માટે બે દબાવો.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "6"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "gu-negated",
+      "language": "gu",
+      "languages": [
+        "gu"
+      ],
+      "category": "negated",
+      "ttsLanguage": "gu",
+      "sttLanguage": "gu",
+      "text": "બિલની ફરિયાદ માટે પાંચ ન દબાવો. આ વિકલ્પ હાલમાં બંધ છે. કૃપા કરીને રાહ જુઓ.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "kn-paraphrase",
+      "language": "kn",
+      "languages": [
+        "kn"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "kn",
+      "sttLanguage": "kn",
+      "text": "ಬಿಲ್ಲಿನಲ್ಲಿ ಹೆಚ್ಚುವರಿ ಮೊತ್ತದ ಬಗ್ಗೆ ಆಕ್ಷೇಪಣೆ ಸಲ್ಲಿಸಲು ಎರಡು ಒತ್ತಿರಿ. ಹೊಸ ಸಂಪರ್ಕಕ್ಕೆ ಎಂಟು ಒತ್ತಿರಿ.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "2"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "kn-withdrawn",
+      "language": "kn",
+      "languages": [
+        "kn"
+      ],
+      "category": "withdrawn",
+      "ttsLanguage": "kn",
+      "sttLanguage": "kn",
+      "text": "ಬಿಲ್ ದೂರುಗಾಗಿ ಮೂರು ಒತ್ತಿರಿ. ಆ ಸೂಚನೆಯನ್ನು ಹಿಂಪಡೆಯಲಾಗಿದೆ. ಮೂರು ಒತ್ತಬೇಡಿ. ದಯವಿಟ್ಟು ಕಾಯಿರಿ.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "ml-paraphrase",
+      "language": "ml",
+      "languages": [
+        "ml"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "ml",
+      "sttLanguage": "ml",
+      "text": "ബില്ലിലെ അധിക തുക ചോദ്യം ചെയ്യാൻ ഏഴ് അമർത്തുക. പുതിയ കണക്ഷന് മൂന്ന് അമർത്തുക.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "7"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "ml-ambiguous",
+      "language": "ml",
+      "languages": [
+        "ml"
+      ],
+      "category": "ambiguous",
+      "ttsLanguage": "ml",
+      "sttLanguage": "ml",
+      "text": "ബിൽ സഹായത്തിന് രണ്ട് അല്ലെങ്കിൽ എട്ട് അമർത്തുക. ഏത് നമ്പറെന്ന് അടുത്ത അറിയിപ്പിൽ പറയും.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "mr-paraphrase",
+      "language": "mr",
+      "languages": [
+        "mr"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "mr",
+      "sttLanguage": "mr",
+      "text": "बिलातील जादा रकमेबद्दल आक्षेप नोंदवण्यासाठी आठ दाबा. नवीन जोडणीसाठी दोन दाबा.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "8"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "mr-negated",
+      "language": "mr",
+      "languages": [
+        "mr"
+      ],
+      "category": "negated",
+      "ttsLanguage": "mr",
+      "sttLanguage": "mr",
+      "text": "बिलाच्या तक्रारीसाठी चार दाबू नका. ही सुविधा सध्या बंद आहे. कृपया थांबा.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "pa-paraphrase",
+      "language": "pa",
+      "languages": [
+        "pa"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "pa",
+      "sttLanguage": "pa",
+      "text": "ਬਿੱਲ ਵਿੱਚ ਵਾਧੂ ਰਕਮ ਬਾਰੇ ਇਤਰਾਜ਼ ਲਈ ਨੌਂ ਦਬਾਓ। ਨਵਾਂ ਕੁਨੈਕਸ਼ਨ ਲੈਣ ਲਈ ਚਾਰ ਦਬਾਓ।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "9"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "pa-withdrawn",
+      "language": "pa",
+      "languages": [
+        "pa"
+      ],
+      "category": "withdrawn",
+      "ttsLanguage": "pa",
+      "sttLanguage": "pa",
+      "text": "ਬਿੱਲ ਦੀ ਸ਼ਿਕਾਇਤ ਲਈ ਛੇ ਦਬਾਓ। ਉਹ ਹਦਾਇਤ ਵਾਪਸ ਲੈ ਲਈ ਗਈ ਹੈ। ਛੇ ਨਾ ਦਬਾਓ। ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "ta-paraphrase",
+      "language": "ta",
+      "languages": [
+        "ta"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "ta",
+      "sttLanguage": "ta",
+      "text": "பில்லில் கூடுதலாக வசூலித்த தொகையை எதிர்க்க ஆறு அழுத்தவும். புதிய இணைப்புக்கு ஒன்று அழுத்தவும்.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "6"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "ta-ambiguous",
+      "language": "ta",
+      "languages": [
+        "ta"
+      ],
+      "category": "ambiguous",
+      "ttsLanguage": "ta",
+      "sttLanguage": "ta",
+      "text": "பில் உதவிக்கு இரண்டு அல்லது ஒன்பது அழுத்தவும். எதைத் தேர்ந்தெடுக்க வேண்டும் என்பது பின்னர் அறிவிக்கப்படும்.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "te-paraphrase",
+      "language": "te",
+      "languages": [
+        "te"
+      ],
+      "category": "paraphrase",
+      "ttsLanguage": "te",
+      "sttLanguage": "te",
+      "text": "బిల్లులో అదనంగా వసూలు చేసిన మొత్తాన్ని ప్రశ్నించడానికి ఒకటి నొక్కండి. కొత్త కనెక్షన్ కోసం ఐదు నొక్కండి.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "1"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "te-negated",
+      "language": "te",
+      "languages": [
+        "te"
+      ],
+      "category": "negated",
+      "ttsLanguage": "te",
+      "sttLanguage": "te",
+      "text": "బిల్లు ఫిర్యాదు కోసం ఏడు నొక్కవద్దు. ఈ సదుపాయం ప్రస్తుతం అందుబాటులో లేదు. దయచేసి వేచి ఉండండి.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "hi-en-positive",
+      "language": "hi",
+      "languages": [
+        "hi",
+        "en"
+      ],
+      "category": "mixed_positive",
+      "ttsLanguage": "hinglish",
+      "sttLanguage": [
+        "hi",
+        "en"
+      ],
+      "text": "Duplicate charge की complaint दर्ज करने के लिए six दबाइए। New connection के लिए two दबाइए।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "6"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "kn-en-positive",
+      "language": "kn",
+      "languages": [
+        "kn",
+        "en"
+      ],
+      "category": "mixed_positive",
+      "ttsLanguage": "auto",
+      "sttLanguage": [
+        "kn",
+        "en"
+      ],
+      "text": "Bill ನಲ್ಲಿ ತಪ್ಪಾದ charge ಬಗ್ಗೆ complaint ದಾಖಲಿಸಲು four ಒತ್ತಿರಿ. New connection ಗಾಗಿ nine ಒತ್ತಿರಿ.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "press",
+        "digit": "4"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "ta-en-withdrawn",
+      "language": "ta",
+      "languages": [
+        "ta",
+        "en"
+      ],
+      "category": "mixed_withdrawn",
+      "ttsLanguage": "auto",
+      "sttLanguage": [
+        "ta",
+        "en"
+      ],
+      "text": "Billing complaint க்கு five அழுத்தவும். அந்த instruction withdrawn. Five அழுத்த வேண்டாம். Please wait.",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    },
+    {
+      "id": "hi-ta-ambiguous",
+      "language": "hi",
+      "languages": [
+        "hi",
+        "ta"
+      ],
+      "category": "mixed_ambiguous",
+      "ttsLanguage": "auto",
+      "sttLanguage": [
+        "hi",
+        "ta"
+      ],
+      "text": "बिल सहायता के लिए दो दबाइए। பில் உதவிக்கு ஏழு அழுத்தவும். अगली सूचना तक रुकिए।",
+      "goal": "I want to complain about an incorrect bill.",
+      "expected": {
+        "kind": "abstain"
+      },
+      "nativeReviewed": false
+    }
+  ]
+}

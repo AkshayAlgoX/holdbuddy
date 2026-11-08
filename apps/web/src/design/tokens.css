@@ -1,0 +1,115 @@
+/*
+ * HoldBuddy — "the Line".
+ *
+ * A call is drawn as a route: one vermilion line that HoldBuddy walks, stepping up at 45° each time the phone line
+ * acknowledges a key, holding as a double rail while it waits, and passing to your ink when a person may be there.
+ * Paper first; charcoal only for the live call. Every colour below has one job.
+ *
+ * Contrast (WCAG, measured): ink/paper 15.3 · graphite/paper 7.2 · caption/paper 4.96 (4.5 on paper-2) ·
+ * vermilion-text/paper 5.3 · cobalt/paper 5.7 · ink on vermilion 4.95 · on-dark/charcoal 13.4 · vermilion/charcoal 4.7.
+ * Vermilion #EF5533 itself is 3.1 on paper, so it is used for lines, marks, fills and display type only.
+ */
+:root {
+  /* Paper */
+  --hb-paper: #fbf9f5;
+  --hb-paper-2: #f2eee5;
+  --hb-paper-3: #e8e2d4;
+  --hb-rule: rgba(24, 27, 32, 0.09);
+  --hb-rule-strong: rgba(24, 27, 32, 0.18);
+
+  /* Ink */
+  --hb-ink: #181b20;
+  --hb-graphite: #4b5058;
+  --hb-caption: #64686f;
+
+  /* The line: HoldBuddy acting */
+  --hb-vermilion: #ef5533;
+  --hb-vermilion-text: #b5351a;
+  --hb-vermilion-tint: #fbeee8;
+
+  /* Signal: subtle slate navy for metadata/system */
+  --hb-cobalt: #2e3e50;
+  --hb-cobalt-tint: #f0f3f7;
+  --hb-cobalt-on-dark: #97b0cc;
+
+  /* The live call: a controlled dark moment */
+  --hb-charcoal: #1d2026;
+  --hb-charcoal-2: #262a31;
+  --hb-charcoal-3: #31353d;
+  --hb-on-dark: #ede8dd;
+  --hb-on-dark-2: #a9abaf;
+  --hb-dark-rule: rgba(237, 232, 221, 0.14);
+
+  /* States: always with a word */
+  --hb-ok: #2a7148;
+  --hb-ok-on-dark: #7fd1a0;
+  --hb-danger: #b42318;
+  --hb-danger-on-dark: #ff9a8a;
+  --hb-caution: #8a5d00;
+
+  /* Type */
+  --hb-indic: "Anek Devanagari Variable", "Anek Bangla Variable", "Anek Gujarati Variable", "Anek Gurmukhi Variable", "Anek Kannada Variable",
+    "Anek Malayalam Variable", "Anek Tamil Variable", "Anek Telugu Variable", "Noto Sans Devanagari", "Noto Sans Bengali", "Noto Sans Tamil";
+  --hb-text: "Anek Latin Variable", var(--hb-indic), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hb-serif: "Instrument Serif", var(--hb-indic), Georgia, "Times New Roman", serif;
+  --hb-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Type scale: editorial display, reading text, technical captions (never below 13px) */
+  --hb-t-hero: clamp(2.8rem, 1.8rem + 4.2vw, 5.25rem);
+  --hb-t-display: clamp(2.2rem, 1.5rem + 2.4vw, 3.8rem);
+  --hb-t-title: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem);
+  --hb-t-heading: clamp(1.3rem, 1.15rem + 0.6vw, 1.75rem);
+  --hb-t-lead: clamp(1.08rem, 1rem + 0.3vw, 1.3rem);
+  --hb-t-body: 1.0625rem;
+  --hb-t-small: 0.9375rem;
+  --hb-t-caption: 0.8125rem;
+
+  /* Space: 4px grid, editorial rhythm */
+  --hb-s-1: 4px;
+  --hb-s-2: 8px;
+  --hb-s-3: 12px;
+  --hb-s-4: 16px;
+  --hb-s-5: 24px;
+  --hb-s-6: 32px;
+  --hb-s-7: 48px;
+  --hb-s-8: 64px;
+  --hb-s-9: 96px;
+  --hb-s-10: 144px;
+
+  /* Geometry: cohesive modern tactile radii */
+  --hb-radius-xs: 4px;
+  --hb-radius-sm: 8px;
+  --hb-radius: 12px;
+  --hb-radius-lg: 18px;
+  --hb-radius-pill: 9999px;
+  --hb-line: 6px;
+  --hb-step: 28px;
+
+  /* Subtle elevations */
+  --hb-shadow-sm: 0 1px 3px rgba(24, 27, 32, 0.05), 0 1px 2px rgba(24, 27, 32, 0.03);
+  --hb-shadow-md: 0 4px 12px rgba(24, 27, 32, 0.06), 0 1px 3px rgba(24, 27, 32, 0.03);
+  --hb-shadow-lg: 0 12px 32px rgba(24, 27, 32, 0.08), 0 2px 6px rgba(24, 27, 32, 0.03);
+  --hb-shadow-vermilion: 0 8px 24px rgba(239, 85, 51, 0.28);
+
+  /* Layout */
+  --hb-max: 1520px;
+  --hb-margin: clamp(20px, 5vw, 80px);
+  --hb-header: 72px;
+
+  /* Motion: sequence, cause and effect */
+  --hb-ease-settle: cubic-bezier(0.2, 0.7, 0, 1);
+  --hb-ease-draw: cubic-bezier(0.65, 0, 0.35, 1);
+  --hb-t-tap: 120ms;
+  --hb-t-reveal: 260ms;
+  --hb-t-draw: 520ms;
+  --hb-t-handoff: 900ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --hb-t-tap: 0ms;
+    --hb-t-reveal: 0ms;
+    --hb-t-draw: 0ms;
+    --hb-t-handoff: 0ms;
+  }
+}

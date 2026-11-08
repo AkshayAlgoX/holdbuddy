@@ -1,0 +1,16 @@
+# Apply only after the owner explicitly approves deployment and recurring spend.
+services:
+  - type: web
+    name: holdbuddy-public-demo
+    runtime: docker
+    plan: 0.5c-512mb
+    region: singapore
+    numInstances: 1
+    autoDeployTrigger: off
+    dockerfilePath: ./Dockerfile.runtime
+    dockerContext: .
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+# RENDER_EXTERNAL_URL and PORT are supplied by Render. No API key or other secret is needed.

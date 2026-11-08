@@ -1,0 +1,150 @@
+[
+  {
+    "file": "prompt-01.wav",
+    "language": "hi",
+    "script": "यह लाइन आपका अनुरोध नहीं ले सकती। अलविदा।",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "hf_alpha",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "GENUINE_TIMBRE_PENDING_GENERATION",
+    "disclosed": "Auxiliary clip not used in primary 3-goal journeys. Ready for bounded runner."
+  },
+  {
+    "file": "prompt-02.wav",
+    "language": "hi",
+    "script": "कृपया लाइन पर बने रहें। हमारे सभी प्रतिनिधि व्यस्त हैं।",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 0.95,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-03.wav",
+    "language": "hi",
+    "script": "नमस्ते, मेरा नाम आशा है। मैं आपकी क्या सहायता कर सकती हूँ?",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 1.0,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-04.wav",
+    "language": "hi",
+    "script": "मोबाइल के लिए कृपया 3 दबाएँ। लैंडलाइन के लिए छह दबाएँ। रोमिंग के लिए कृपया 1 दबाएँ। ब्रॉडबैंड के लिए पाँच दबाएँ।",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 0.95,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-05.wav",
+    "language": "hi",
+    "script": "दोबारा सुनने के लिए तीन दबाएँ। बिल के लिए कृपया 8 दबाएँ। प्लान के लिए दो दबाएँ। नया कनेक्शन के लिए कृपया 6 दबाएँ। तकनीकी सहायता के लिए सात दबाएँ। स्टोर की जानकारी के लिए कृपया 1 दबाएँ। मुख्य मेनू पर वापस जाने के लिए नौ दबाएँ।",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 0.95,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-06.wav",
+    "language": "hi",
+    "script": "धन्यवाद।",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 1.0,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-07.wav",
+    "language": "hi",
+    "script": "बिल की शिकायत के लिए कृपया 1 दबाएँ। रोमिंग के लिए सात दबाएँ। दोबारा सुनने के लिए कृपया 4 दबाएँ। बिल के भुगतान के लिए दो दबाएँ। मुख्य मेनू पर वापस जाने के लिए कृपया 5 दबाएँ।",
+    "generator": "Gnani Timbre v3.0 (Shivani)",
+    "voice": "Shivani",
+    "origin": "genuine_timbre_v3",
+    "speed": 0.95,
+    "playbackVerified": true
+  },
+  {
+    "file": "prompt-08.wav",
+    "language": "hi",
+    "script": "मासिक विवरण के लिए कृपया 1 दबाएँ। रोमिंग के लिए सात दबाएँ। दोबारा सुनने के लिए कृपया 4 दबाएँ। बिल के भुगतान के लिए दो दबाएँ। मुख्य मेनू पर वापस जाने के लिए कृपया 5 दबाएँ।",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "hf_alpha",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "GENUINE_TIMBRE_PENDING_GENERATION",
+    "disclosed": "Auxiliary clip not used in primary 3-goal journeys. Ready for bounded runner."
+  },
+  {
+    "file": "prompt-09.wav",
+    "language": "en",
+    "script": "For retail store timings press 1. For corporate careers press 2.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  },
+  {
+    "file": "prompt-10.wav",
+    "language": "en",
+    "script": "No option selected.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  },
+  {
+    "file": "prompt-11.wav",
+    "language": "en",
+    "script": "For billing press 3. For technical support press 1.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  },
+  {
+    "file": "prompt-12.wav",
+    "language": "en",
+    "script": "Goodbye.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  },
+  {
+    "file": "prompt-13.wav",
+    "language": "en",
+    "script": "Please hold. All our agents are busy.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  },
+  {
+    "file": "prompt-14.wav",
+    "language": "en",
+    "script": "Hello, my name is Asha, and we have a limited time offer for you.",
+    "generator": "Kokoro-82M v1.0 (local ONNX)",
+    "voice": "af_sarah",
+    "origin": "new_public_synthetic",
+    "speed": 0.92,
+    "status": "ENGLISH_REFERENCE_WITHHELD",
+    "disclosed": "Diagnostic reference. English voice toggle withheld until complete Timbre English menu set generated."
+  }
+]
