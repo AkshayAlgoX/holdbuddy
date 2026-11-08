@@ -102,7 +102,22 @@ To prevent misleading interpretations, the engineering scope is explicitly quali
 
 ## 6. How to Validate This Evidence Offline
 
-Any evaluator or developer with Node.js 22 can independently verify this evidence package without requiring an Asterisk installation or Gnani API credentials:
+### Distinction Between Publicly Verifiable Checks & Retained Artifacts
+
+- **Verifiable from Fresh Public Clone (Zero Private Dependencies):**
+  - **Cryptographic & Structural Integrity:** All prompt SHA-256 digests (`pcmSha256`), turn sequences, and DTMF receipts in [`docs/evidence/genuine-acceptance-evidence.json`](./evidence/genuine-acceptance-evidence.json) can be validated using the offline node script below.
+  - **Automated Regression & Security Suite:** Running `npm test` executes all 48 test suites, validating decision rules, rate-limits, Content Security Policies, and session mutex guarantees.
+  - **Build Reproducibility:** Clean Vite bundling and TypeScript verification run without network dependencies.
+
+- **Retained in Private Developer Testbed:**
+  - **Raw AudioSocket Wire Stream:** The 1,086,268-byte binary capture (`native-audiosocket.bin`) and unredacted PBX console logs are retained in private test records to avoid committing megabyte-scale raw wire binaries and internal path strings.
+  - **API Credentials:** The volatile `GNANI_API_KEY` was entered exclusively via ephemeral terminal stdin and was never persisted to disk.
+
+---
+
+### Step-by-Step Offline Verification
+
+Any evaluator or developer with Node.js 22 can independently verify this evidence package using only the published repository files:
 
 ```bash
 # 1. Inspect the sanitized machine-readable evidence
